@@ -1,18 +1,21 @@
+import type { Metadata } from 'next';
 import Header from '@/components/Header';
-import CartDrawer from '@/components/CartDrawer';
 import './globals.css';
 
-export const metadata = {
-  title: 'Negro Monte Store',
-  description: 'Loja premium com estilo moderno e exclusividade.',
+export const metadata: Metadata = {
+  title: 'Negro Monte Store - Móveis e Decoração com até 45% OFF',
+  description: 'Loja de móveis e decoração premium. Camas box, sofás, guarda-roupas e móveis de cozinha. Entrega para todo o Brasil.',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="pt-BR">
       <body>
         <Header />
-        <CartDrawer />
         {children}
       </body>
     </html>
