@@ -1,7 +1,7 @@
 {
   "name": "negro-monte-store",
   "version": "1.0.0",
-  "private": true,
+  "description": "Loja de móveis e decoração - Dark Luxury Premium",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,21 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "lucide-react": "^0.469.0",
-    "next": "14.2.15",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "zustand": "^5.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^14.0.0",
+    "typescript": "^5.0.0",
+    "tailwindcss": "^3.3.0",
+    "postcss": "^8.4.30",
+    "autoprefixer": "^10.4.15",
+    "zustand": "^4.4.0",
+    "lucide-react": "^0.294.0"
   },
   "devDependencies": {
-    "@types/node": "^22.10.2",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.17.0",
-    "eslint-config-next": "14.2.15",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.16",
-    "typescript": "^5.7.2"
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
   }
 }

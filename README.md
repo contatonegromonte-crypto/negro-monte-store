@@ -1,148 +1,97 @@
-# Negro Monte Store - E-commerce Premium
+# Negro Monte Store
 
-Loja de móveis e decoração premium com fluxo de compra completo, integração com WhatsApp e interface luxury dark mode.
+Loja de móveis e decoração com design premium em dark luxury.
 
-## 🚀 Funcionalidades
+## 🚀 Tecnologias
 
-- **Homepage Premium**: Hero section luxuoso com gradiente e animações
-- **Catálogo de Produtos**: Grid responsivo com filtros por categoria
-- **Página de Detalhe**: Informações completas com imagens de alta qualidade
-- **Carrinho Persistente**: Estado do carrinho salvo no localStorage
-- **Checkout Integrado**: Formulário com validação e envio via WhatsApp
-- **WhatsApp Button Flutuante**: CTA de WhatsApp sempre visível
-- **Design Responsivo**: Mobile-first, otimizado para todos os tamanhos
-- **Performance**: Optimizado para Lighthouse e Core Web Vitals
+- **Next.js 14** - Framework React
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Estilos responsivos
+- **Zustand** - Gerenciamento de estado
+- **Lucide Icons** - Ícones vetoriais
 
-## 📋 Requisitos
-
-- Node.js 18+
-- npm ou yarn
-
-## 🔧 Instalação
+## 📦 Instalação
 
 ```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/negro-monte-store.git
+# Clonar repositório
+git clone https://github.com/contatonegromonte-crypto/negro-monte-store.git
 cd negro-monte-store
 
-# Instale as dependências
+# Instalar dependências
 npm install
 
-# Configure as variáveis de ambiente
-cp .env.example .env.local
-
-# Adicione seu número do WhatsApp no .env.local
-NEXT_PUBLIC_WHATSAPP_NUMBER=55XXXXXXXXXXXX
-```
-
-## 🏃 Desenvolvimento
-
-```bash
-# Inicie o servidor de desenvolvimento
+# Rodas em desenvolvimento
 npm run dev
 
-# Abra http://localhost:3000 no navegador
-```
-
-## 📦 Build para Produção
-
-```bash
-# Crie a build de produção
+# Build para produção
 npm run build
-
-# Inicie o servidor de produção
-npm start
+npm run start
 ```
 
-## 📁 Estrutura do Projeto
+## 🏗️ Estrutura do Projeto
 
 ```
 .
 ├── app/
-│   ├── page.tsx              # Homepage
-│   ├── layout.tsx            # Layout raiz
-│   ├── globals.css           # Estilos globais
-│   ├── carrinho/page.tsx     # Página do carrinho
-│   ├── checkout/page.tsx     # Página de checkout
-│   └── produto/[id]/page.tsx # Página de detalhe do produto
+│   ├── page.tsx           # Home page
+│   ├── carrinho/          # Página do carrinho
+│   ├── produto/[id]/      # Página do produto
+│   └── layout.tsx         # Layout global
 ├── components/
-│   ├── Header.tsx            # Cabeçalho
-│   ├── ProductCard.tsx       # Card de produto
-│   └── CartDrawer.tsx        # Drawer do carrinho
+│   ├── Header.tsx         # Cabeçalho
+│   └── ProductCard.tsx    # Card do produto
 ├── lib/
-│   ├── products.ts           # Lista de produtos
-│   ├── store.ts              # Estado global (Zustand)
-│   └── utils.ts              # Funções utilitárias
-├── public/                   # Arquivos estáticos
-└── package.json
+│   ├── products.ts        # Dados dos produtos
+│   └── store.ts           # Estado Zustand
+└── app/globals.css        # Estilos globais
 ```
 
-## 🎨 Customização
+## 📱 Funcionalidades
 
-### Cores
-As cores principais estão definidas em `app/globals.css`:
-- `--gold: #e7b85f` (Cor primária)
-- `--gold-2: #d39a2d` (Cor secundária)
-- `--dark: #111111` (Fundo escuro)
+- ✅ Listagem de produtos com filtros
+- ✅ Página de detalhes do produto
+- ✅ Carrinho de compras funcional
+- ✅ Checkout com formulário
+- ✅ Confirmação de pedido
+- ✅ Responsivo mobile-first
+- ✅ Design dark luxury premium
+- ✅ Integração WhatsApp
 
-### Produtos
-Altere a lista de produtos em `lib/products.ts`
+## 🎨 Design
 
-### WhatsApp
-Atualize o número do WhatsApp em `.env.local`:
-```
-NEXT_PUBLIC_WHATSAPP_NUMBER=55XXXXXXXXXXXX
-```
+- **Paleta de cores**: Dark (#0b0b0b), Gold (#e7b85f), White/Zinc
+- **Tipografia**: Inter/Segoe UI
+- **Layout**: Grid responsivo 4 colunas → 2 → 1
+- **Bordas**: Rounded (18px-30px)
+- **Sombras**: Premium com backdrop-blur
 
 ## 🚀 Deploy
 
 ### Vercel (Recomendado)
 
-```bash
-# Instale o Vercel CLI
-npm i -g vercel
+1. Push para GitHub
+2. Conectar repo no [Vercel](https://vercel.com)
+3. Deploy automático
 
-# Deploy
-vercel
+```bash
+npm run build
+npm run start
 ```
 
-### Outras Plataformas
+## 📝 Variáveis de Ambiente
 
-O projeto é compatível com qualquer plataforma que suporte Next.js:
-- Netlify
-- Railway
-- Heroku
-- AWS Amplify
+Copie `.env.example` para `.env.local` e configure:
 
-## 📊 Otimizações
+```env
+# WhatsApp (optional)
+WHATSAPP_BUSINESS_PHONE=55XXXXXXXXXXXX
+```
 
-- ✅ Tailwind CSS para estilos otimizados
-- ✅ Zustand para gerenciamento de estado leve
-- ✅ LocalStorage para persistência de dados
-- ✅ Imagens otimizadas com Next.js Image
-- ✅ SEO-friendly com metadados
+## 📞 Suporte
 
-## 📱 Mobile First
+- WhatsApp: Botão no canto inferior direito
+- Email: contatonegromonte@gmail.com
 
-O site é totalmente responsivo e otimizado para:
-- Smartphones (< 640px)
-- Tablets (640px - 1024px)
-- Desktop (> 1024px)
+## 📄 Licença
 
-## 🔒 Segurança
-
-- Variáveis de ambiente protegidas
-- Validação de formulário no cliente e servidor
-- Nenhum dado sensível armazenado localmente
-
-## 📝 Licença
-
-MIT License - veja LICENSE.md para detalhes
-
-## 👨‍💼 Suporte
-
-Para suporte, abra uma issue no GitHub ou envie uma mensagem via WhatsApp.
-
----
-
-**Negro Monte Store** - Conforto, qualidade e estilo para sua casa.
+MIT
