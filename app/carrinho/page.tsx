@@ -12,67 +12,67 @@ export default function CartPage() {
 
   if (cart.length === 0) {
     return (
-      <main className="mx-auto max-w-7xl px-5 py-20">
-        <div className="rounded-2xl border-2 border-dashed border-gray-300 bg-gray-50 p-12 text-center">
-          <ShoppingCart size={48} className="mx-auto mb-4 text-gray-400" />
-          <h1 className="text-3xl font-bold text-gray-900">Seu carrinho está vazio</h1>
-          <p className="mt-4 text-gray-600">Adicione produtos para começar sua compra</p>
-          <Link
-            href="/"
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 font-semibold text-white transition hover:bg-orange-600"
-          >
-            Continuar comprando
-          </Link>
-        </div>
+      <main className="mx-auto max-w-7xl px-5 py-32 text-center">
+        <ShoppingCart size={64} className="mx-auto mb-6 text-zinc-500" />
+        <h1 className="text-4xl font-black text-white">Seu carrinho está vazio</h1>
+        <p className="mt-4 text-zinc-400">Adicione produtos para começar sua compra</p>
+        <Link
+          href="/"
+          className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#e7b85f] px-8 py-4 font-bold text-black transition hover:bg-[#d39a2d]"
+        >
+          Continuar comprando
+        </Link>
       </main>
     );
   }
 
   return (
     <main className="mx-auto max-w-7xl px-5 py-10">
-      <h1 className="text-4xl font-black text-gray-900">Carrinho de compras</h1>
+      <h1 className="text-4xl font-black text-white">Carrinho de compras</h1>
 
       <div className="mt-10 grid gap-8 md:grid-cols-[1.5fr_0.9fr]">
         <div className="space-y-5">
           {cart.map((item) => (
-            <div key={item.id} className="rounded-xl border border-gray-200 bg-white p-5">
-              <div className="flex items-start gap-5">
+            <div key={item.id} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="flex items-start gap-6">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="h-32 w-32 rounded-lg object-cover"
+                  className="h-32 w-32 rounded-2xl object-cover"
                 />
                 <div className="flex-1">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h2 className="font-bold text-gray-900">{item.name}</h2>
-                      <p className="mt-1 text-sm text-gray-600">R$ {item.price.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
+                      <Link href={`/produto/${item.id}`} className="block text-lg font-bold text-white hover:text-[#e7b85f]">
+                        {item.name}
+                      </Link>
+                      <p className="mt-2 text-[#e7b85f] font-semibold">R$ {item.price.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
                     </div>
                     <button
                       onClick={() => removeFromCart(item.id)}
-                      className="text-gray-400 hover:text-red-500 transition"
+                      className="text-zinc-500 transition hover:text-red-500"
                     >
-                      <X size={20} />
+                      <X size={24} />
                     </button>
                   </div>
 
-                  <div className="mt-4 flex items-center justify-between">
-                    <div className="flex items-center gap-2 rounded-lg border border-gray-300 bg-gray-50">
+                  <div className="mt-6 flex items-center justify-between">
+                    <div className="flex items-center gap-3 rounded-full border border-white/10 bg-white/5 p-1">
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="px-3 py-2 text-gray-600 hover:bg-white"
+                        className="rounded-full p-2 text-zinc-300 hover:bg-white/10"
                       >
-                        <Minus size={16} />
+                        <Minus size={18} />
                       </button>
-                      <span className="min-w-8 text-center font-semibold">{item.quantity}</span>
+                      <span className="min-w-8 text-center font-bold text-white">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="px-3 py-2 text-gray-600 hover:bg-white"
+                        className="rounded-full p-2 text-zinc-300 hover:bg-white/10"
                       >
-                        <Plus size={16} />
+                        <Plus size={18} />
                       </button>
                     </div>
-                    <span className="font-bold text-orange-600">
+                    <span className="text-2xl font-black text-[#e7b85f]">
                       R$ {(item.price * item.quantity).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                     </span>
                   </div>
@@ -82,37 +82,47 @@ export default function CartPage() {
           ))}
         </div>
 
-        <aside className="rounded-xl border border-gray-200 bg-white p-6 h-fit">
-          <h3 className="text-2xl font-black text-gray-900">Resumo</h3>
+        <aside className="rounded-2xl border border-white/10 bg-white/5 p-8 h-fit sticky top-20">
+          <h3 className="text-2xl font-black text-white">Resumo do pedido</h3>
 
-          <div className="mt-6 space-y-3 border-b border-gray-200 pb-6">
-            <div className="flex justify-between text-gray-600">
+          <div className="mt-8 space-y-4 border-b border-white/10 pb-8">
+            {cart.map((item) => (
+              <div key={item.id} className="flex justify-between">
+                <span className="text-sm text-zinc-300">{item.name} x {item.quantity}</span>
+                <span className="font-semibold text-white">
+                  R$ {(item.price * item.quantity).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 space-y-3">
+            <div className="flex justify-between text-zinc-400">
               <span>Subtotal</span>
               <span>R$ {subtotal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</span>
             </div>
-            <div className="flex justify-between text-gray-600">
+            <div className="flex justify-between text-zinc-400">
               <span>Frete</span>
               <span>R$ {shipping.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</span>
             </div>
-          </div>
-
-          <div className="mt-6 flex justify-between">
-            <span className="font-bold text-gray-900">Total</span>
-            <span className="text-2xl font-black text-orange-600">
-              R$ {total.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-            </span>
+            <div className="flex justify-between border-t border-white/10 pt-4">
+              <span className="font-bold text-white">Total</span>
+              <span className="text-2xl font-black text-[#e7b85f]">
+                R$ {total.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+              </span>
+            </div>
           </div>
 
           <Link
             href="/checkout"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-orange-500 px-4 py-4 font-bold text-white transition hover:bg-orange-600"
+            className="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-[#e7b85f] px-4 py-4 font-bold text-black transition hover:bg-[#d39a2d]"
           >
             Finalizar compra
           </Link>
 
           <Link
             href="/"
-            className="mt-3 inline-flex w-full items-center justify-center rounded-lg border-2 border-gray-300 px-4 py-3 font-bold text-gray-900 transition hover:border-orange-500 hover:bg-orange-50"
+            className="mt-3 inline-flex w-full items-center justify-center rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-bold text-white transition hover:bg-white/10 hover:border-[#e7b85f]/60"
           >
             Continuar comprando
           </Link>
