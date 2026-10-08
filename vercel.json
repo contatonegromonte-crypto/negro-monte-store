@@ -1,5 +1,7 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "installCommand": "npm install"
+  "env": {
+    "NEXT_PUBLIC_STORE_NAME": "Negro Monte Store"
+  }
 }
