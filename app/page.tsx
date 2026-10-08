@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import ProductCard from '@/components/ProductCard';
 import { products, categories } from '@/lib/products';
 import { useState } from 'react';
 import { ChevronRight, Truck, ShieldCheck, BadgeCheck } from 'lucide-react';
@@ -14,64 +13,85 @@ export default function HomePage() {
 
   return (
     <main className="bg-[#0b0b0b] text-white">
-      <section className="hero-noise relative overflow-hidden py-16 md:py-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(231,184,95,0.18),_transparent_30%),linear-gradient(135deg,_rgba(0,0,0,0.5)_0%,_rgba(12,12,12,0.8)_100%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-2 md:items-center">
-          <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#e7b85f]/30 bg-[#e7b85f]/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#f5d99e]">
-              <span className="h-2 w-2 rounded-full bg-[#e7b85f]" />
-              conforto e confiança
+      <section className="noise-cover relative overflow-hidden py-9 md:py-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(228,184,103,0.14),_transparent_28%),linear-gradient(135deg,_rgba(18,18,18,0.6)_0%,_rgba(10,10,10,0.9)_100%)]" />
+        <div className="relative mx-auto max-w-[1280px] px-4 md:px-6">
+          <div className="mb-6 flex flex-col gap-4 rounded-[18px] bg-[#f1eee9] px-4 py-3 text-[#1d1d1d] md:flex-row md:items-center md:justify-between md:px-6">
+            <div className="flex items-center gap-3 text-[15px] font-medium">
+              <span className="inline-flex items-center gap-2">
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M3 7.5h18M6 7.5V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5M5 7.5l1.4 10.5A2 2 0 0 0 8.4 20h7.2a2 2 0 0 0 2-1.5L19 7.5"/>
+                </svg>
+                <span>Entrega para todo o Brasil</span>
+              </span>
             </div>
 
-            <h1 className="max-w-xl text-5xl font-black leading-[0.9] tracking-[-0.06em] md:text-7xl">
-              Móveis e decoração com até <span className="gradient-text">45% OFF</span>
-            </h1>
-
-            <p className="mt-6 max-w-xl text-lg text-zinc-300">
-              Camas box, sofás, guarda-roupas e móveis de cozinha de alta qualidade. Conforto e design para sua casa com desconto real.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="#colecoes" className="inline-flex items-center gap-2 rounded-xl bg-[#e7b85f] px-6 py-3 font-semibold text-black transition hover:bg-[#d39a2d]">
-                Ver produtos
-                <ChevronRight size={18} />
-              </Link>
-              <Link href="#sobre" className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-[#e7b85f]/60 hover:text-[#f5d99e]">
-                Conhecer mais
-              </Link>
+            <div className="flex items-center gap-3 text-[15px] font-medium">
+              <span className="inline-flex items-center gap-2">
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M7 12.5 10 15.5 17 8.5"/>
+                  <circle cx="12" cy="12" r="9"/>
+                </svg>
+                Compra 100% segura
+              </span>
             </div>
           </div>
+        </div>
 
-          <div className="rounded-[28px] border border-white/10 bg-white/5 p-4 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
-            <img
-              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80"
-              alt="Sofá premium"
-              className="h-[540px] w-full rounded-[20px] object-cover"
-            />
+        <div className="relative mx-auto mt-4 max-w-[1280px] px-4 md:px-6">
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="mb-5 text-[12px] font-semibold uppercase tracking-[0.4em] text-[#f0d492]">Conforto e confiança</p>
+              <h1 className="max-w-[720px] text-[42px] font-black leading-[0.92] tracking-[-0.08em] text-white md:text-[90px] text-shadow-soft">
+                Móveis e <span className="text-white/95">decoração</span>
+                <span className="block leading-[0.9]">
+                  com até <span className="gradient-text">45% OFF</span>
+                </span>
+              </h1>
+
+              <p className="mt-6 max-w-[620px] text-lg leading-8 text-zinc-300 md:text-[23px]">
+                Camas box, sofás, guarda-roupas e móveis de cozinha de alta qualidade. Conforto e design para sua casa com desconto real.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link href="#colecoes" className="inline-flex items-center gap-2 rounded-[18px] bg-[#e4b867] px-7 py-4 text-lg font-bold text-black transition hover:bg-[#d89f2f]">
+                  Ver produtos
+                  <ChevronRight size={20} />
+                </Link>
+              </div>
+            </div>
+
+            <div className="rounded-[30px] border border-white/10 bg-[#d8d0c7] p-4 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+              <img
+                src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80"
+                alt="Sofá premium"
+                className="h-[420px] w-full rounded-[20px] object-cover md:h-[540px]"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       <section className="border-y border-white/10 bg-[#111111] py-10">
-        <div className="mx-auto grid max-w-7xl gap-6 px-5 md:grid-cols-3">
-          <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-            <Truck className="h-7 w-7 text-[#e7b85f]" />
+        <div className="mx-auto grid max-w-[1280px] gap-4 px-4 md:grid-cols-3 md:px-6">
+          <div className="flex items-center gap-4 rounded-[22px] border border-white/10 bg-white/5 p-4">
+            <Truck className="h-8 w-8 text-[#e4b867]" />
             <div>
               <p className="font-bold text-white">Entrega para todo o Brasil</p>
               <p className="text-sm text-zinc-400">Em até 15 dias úteis</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-            <ShieldCheck className="h-7 w-7 text-[#e7b85f]" />
+          <div className="flex items-center gap-4 rounded-[22px] border border-white/10 bg-white/5 p-4">
+            <ShieldCheck className="h-8 w-8 text-[#e4b867]" />
             <div>
               <p className="font-bold text-white">Compra 100% segura</p>
               <p className="text-sm text-zinc-400">Protegido por sistema avançado</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-            <BadgeCheck className="h-7 w-7 text-[#e7b85f]" />
+          <div className="flex items-center gap-4 rounded-[22px] border border-white/10 bg-white/5 p-4">
+            <BadgeCheck className="h-8 w-8 text-[#e4b867]" />
             <div>
               <p className="font-bold text-white">Qualidade garantida</p>
               <p className="text-sm text-zinc-400">Produtos premium e confiáveis</p>
@@ -80,19 +100,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="colecoes" className="mx-auto max-w-7xl px-5 py-20">
-        <div className="mb-10 flex items-end justify-between gap-4">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#e7b85f] font-semibold">Coleções</p>
-            <h2 className="mt-3 text-4xl font-black text-white">Novidades exclusivas</h2>
-          </div>
+      <section id="colecoes" className="mx-auto max-w-[1280px] px-4 py-20 md:px-6">
+        <div className="mb-10">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#e4b867] font-semibold">Coleções</p>
+          <h2 className="mt-3 text-4xl font-black text-white">Novidades exclusivas</h2>
         </div>
 
         <div className="mb-10 flex flex-wrap gap-2">
           <button
             onClick={() => setSelectedCategory(null)}
             className={`rounded-full px-4 py-2 font-semibold transition ${
-              selectedCategory === null ? 'bg-[#e7b85f] text-black' : 'bg-white/5 text-zinc-200 hover:bg-white/10'
+              selectedCategory === null ? 'bg-[#e4b867] text-black' : 'bg-white/5 text-zinc-200 hover:bg-white/10'
             }`}
           >
             Todos
@@ -102,7 +120,7 @@ export default function HomePage() {
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`rounded-full px-4 py-2 font-semibold transition ${
-                selectedCategory === category ? 'bg-[#e7b85f] text-black' : 'bg-white/5 text-zinc-200 hover:bg-white/10'
+                selectedCategory === category ? 'bg-[#e4b867] text-black' : 'bg-white/5 text-zinc-200 hover:bg-white/10'
               }`}
             >
               {category}
@@ -118,7 +136,7 @@ export default function HomePage() {
       </section>
 
       <section id="sobre" className="bg-[#111111] py-20">
-        <div className="mx-auto max-w-7xl px-5">
+        <div className="mx-auto max-w-[1280px] px-4 md:px-6">
           <div className="grid gap-10 md:grid-cols-2 md:items-center">
             <div className="rounded-[28px] border border-white/10 bg-white/5 p-5">
               <img
@@ -129,26 +147,22 @@ export default function HomePage() {
             </div>
 
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-[#e7b85f] font-semibold">Sobre nós</p>
+              <p className="text-sm uppercase tracking-[0.3em] text-[#e4b867] font-semibold">Sobre nós</p>
               <h2 className="mt-4 text-4xl font-black text-white">A essência do conforto e estilo</h2>
-              <p className="mt-6 text-zinc-300">
-                A Negro Monte Store nasceu para reunir conceito, conforto e exclusividade em uma experiência moderna de compra.
-              </p>
-              <p className="mt-4 text-zinc-300">
-                Cada peça é pensada para valorizar sua casa com qualidade, design e preço justo.
-              </p>
+              <p className="mt-6 text-zinc-300">A Negro Monte Store nasceu para reunir conceito, conforto e exclusividade em uma experiência moderna de compra.</p>
+              <p className="mt-4 text-zinc-300">Cada peça é pensada para valorizar sua casa com qualidade, design e preço justo.</p>
 
               <div className="mt-8 grid gap-5 sm:grid-cols-3">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                  <div className="text-3xl font-black text-[#e7b85f]">+5k</div>
+                  <div className="text-3xl font-black text-[#e4b867]">+5k</div>
                   <div className="mt-2 text-sm text-zinc-300">Clientes</div>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                  <div className="text-3xl font-black text-[#e7b85f]">98%</div>
+                  <div className="text-3xl font-black text-[#e4b867]">98%</div>
                   <div className="mt-2 text-sm text-zinc-300">Satisfação</div>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                  <div className="text-3xl font-black text-[#e7b85f]">24h</div>
+                  <div className="text-3xl font-black text-[#e4b867]">24h</div>
                   <div className="mt-2 text-sm text-zinc-300">Suporte</div>
                 </div>
               </div>
